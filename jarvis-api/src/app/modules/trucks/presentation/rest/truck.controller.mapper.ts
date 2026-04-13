@@ -1,10 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Truck } from '../../domain/entities/truck.entity';
 import type { TruckSortField, TruckSortOrder } from '../../domain/entities/truck-sort.entity';
-import {
-  SearchTrucksCommand,
-  SearchTrucksResult,
-} from '../../application/use-cases/search-trucks/search-trucks.types';
+import { SearchTrucksCommand, SearchTrucksResult } from '../../application/use-cases/search-trucks.usecase';
 import { TruckResponseDTO, TruckListResponseDTO } from './truck.controller.dto';
 
 @Injectable()

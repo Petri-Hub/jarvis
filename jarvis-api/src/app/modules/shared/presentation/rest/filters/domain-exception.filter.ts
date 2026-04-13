@@ -3,7 +3,7 @@ import { HttpAdapterHost } from '@nestjs/core';
 import { BaseError } from '../../../domain/errors/base.error';
 import { ERROR_CODE_TO_HTTP_STATUS } from '../constants/error-http-status.constants';
 import { ErrorResponseDto } from '../dtos/error-response.dto';
-import { Logger } from '../../../../logging/logger.service';
+import { Logger } from '../../../../logging/infrastructure/logger.service';
 
 @Catch(BaseError)
 export class DomainExceptionFilter implements ExceptionFilter {

@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { APP_FILTER } from '@nestjs/core';
 import { EventEmitterModule } from '@nestjs/event-emitter';
-import { AuthModule } from '../auth/auth.module';
 import { PrismaModule } from './modules/prisma/prisma.module';
 import { TrucksModule } from './modules/trucks/trucks.module';
 import { SharedModule } from './modules/shared/shared.module';
@@ -21,7 +20,6 @@ import { DomainExceptionFilter } from './modules/shared/presentation/rest/filter
     }),
     EventEmitterModule.forRoot(),
     PrismaModule,
-    AuthModule,
     TrucksModule,
     SharedModule,
     NotificationModule,
