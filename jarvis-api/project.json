@@ -1,0 +1,75 @@
+{
+  "targets": {
+    "dependencies:up": {},
+    "dependencies:down": {},
+    "build": {
+      "executor": "@nx/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "projects/apps/truck-backend/dist",
+        "main": "projects/apps/truck-backend/src/main.ts",
+        "tsConfig": "projects/apps/truck-backend/tsconfig.app.json",
+        "swcrc": "projects/apps/truck-backend/.swcrc"
+      },
+      "configurations": {
+        "production": {
+          "sourceMap": false
+        }
+      }
+    },
+    "serve": {
+      "continuous": true,
+      "executor": "@nx/js:node",
+      "dependsOn": ["build", "dependencies:up"],
+      "options": {
+        "buildTarget": "truck-backend:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "truck-backend:build"
+        },
+        "production": {
+          "buildTarget": "truck-backend:build:production"
+        }
+      }
+    },
+    "prune-lockfile": {
+      "dependsOn": ["build"],
+      "cache": true,
+      "executor": "@nx/js:prune-lockfile",
+      "outputs": [
+        "{workspaceRoot}prisma/projects/apps/truck-backend/dist/package.json",
+        "{workspaceRoot}/projects/apps/truck-backend/dist/pnpm-lock.yaml"
+      ],
+      "options": {
+        "buildTarget": "build"
+      }
+    },
+    "copy-workspace-modules": {
+      "dependsOn": ["build"],
+      "cache": true,
+      "outputs": ["{workspaceRoot}/projects/apps/truck-backend/dist/workspace_modules"],
+      "executor": "@nx/js:copy-workspace-modules",
+      "options": {
+        "buildTarget": "build"
+      }
+    },
+    "prune": {
+      "dependsOn": ["prune-lockfile", "copy-workspace-modules"],
+      "executor": "nx:noop"
+    },
+    "test": {
+      "options": {
+        "passWithNoTests": true
+      }
+    },
+    "prisma:generate": {},
+    "prisma:migrate": {},
+    "prisma:migrate:deploy": {},
+    "prisma:migrate:reset": {},
+    "prisma:studio": {},
+    "prisma:format": {},
+    "prisma:validate": {}
+  }
+}
