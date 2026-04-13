@@ -2,17 +2,17 @@ services:
   postgres:
     image: postgres:latest
     environment:
-      POSTGRES_DB: truck-database
-      POSTGRES_USER: truck-database-user
-      POSTGRES_PASSWORD: truck-database-password
+      POSTGRES_DB: jarvis-database
+      POSTGRES_USER: jarvis-database-user
+      POSTGRES_PASSWORD: jarvis-database-password
     ports:
       - '5432:5432'
     networks:
-      - truck-network
+      - jarvis-network
 
   mailpit:
     image: axllent/mailpit
-    container_name: truck-mailpit
+    container_name: jarvis-mailpit
     restart: unless-stopped
     ports:
       - '8025:8025'
@@ -25,10 +25,10 @@ services:
       MP_SMTP_AUTH_ACCEPT_ANY: 1
       MP_SMTP_AUTH_ALLOW_INSECURE: 1
     networks:
-      - truck-network
+      - jarvis-network
 
 networks:
-  truck-network:
+  jarvis-network:
     driver: bridge
 
 volumes:
