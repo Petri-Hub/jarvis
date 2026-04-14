@@ -6,3 +6,8 @@ node_modules
 
 # Prisma generated client.
 **/prisma/client
+
+# Compiled output.
+/dist
+/node_modules
+/build
