@@ -15,7 +15,6 @@ All files use `kebab-case` with a mandatory semantic suffix.
 | Domain service | `<noun>.service.ts` | `event-emitter.service.ts` |
 | Domain constants | `<concern>.constants.ts` | `errors.constants.ts` |
 | Use case | `<verb>-<noun>.usecase.ts` | `create-truck.usecase.ts` |
-| Use case types | `<verb>-<noun>.types.ts` | `create-truck.types.ts` |
 | Infra repository | `prisma-<noun>.repository.ts` | `prisma-truck.repository.ts` |
 | Infra service | `<lib>-<noun>.service.ts` | `nestjs-mailer.service.ts` |
 | Controller | `<noun>.controller.ts` | `truck.controller.ts` |
@@ -83,5 +82,4 @@ Types use `PascalCase` with a semantic suffix.
 
 ## General Rules
 - All names must be intention-revealing — never `data`, `temp`, `result`, `x`, `y`
-- Use case folder names follow `<verb>-<noun>/` — verb first, kebab-case
 - Event class names and file names use past tense — `Created`, not `Create`

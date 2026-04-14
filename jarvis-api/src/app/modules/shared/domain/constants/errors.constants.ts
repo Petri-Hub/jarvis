@@ -9,6 +9,12 @@ export enum ErrorCodes {
   TRUCK_UPDATE_FAILED = 'T006',
   TRUCK_DELETION_FAILED = 'T007',
   TRUCK_PERSISTENCE_ERROR = 'T008',
+  USER_NOT_FOUND = 'U001',
+  USER_ALREADY_EXISTS = 'U002',
+  INVALID_CREDENTIALS = 'U003',
+  USER_CREATION_FAILED = 'U004',
+  USER_AUTH_FAILED = 'U005',
+  USER_PERSISTENCE_ERROR = 'U006',
 }
 
 export enum ErrorTitles {
@@ -22,6 +28,12 @@ export enum ErrorTitles {
   TRUCK_UPDATE_FAILED = 'Truck update failed',
   TRUCK_DELETION_FAILED = 'Truck deletion failed',
   TRUCK_PERSISTENCE_ERROR = 'Truck persistence error',
+  USER_NOT_FOUND = 'User not found',
+  USER_ALREADY_EXISTS = 'User already exists',
+  INVALID_CREDENTIALS = 'Invalid credentials',
+  USER_CREATION_FAILED = 'User creation failed',
+  USER_AUTH_FAILED = 'User authentication failed',
+  USER_PERSISTENCE_ERROR = 'User persistence error',
 }
 
 export enum ErrorMessages {
@@ -35,4 +47,10 @@ export enum ErrorMessages {
   TRUCK_UPDATE_FAILED = 'Failed to update the truck.',
   TRUCK_DELETION_FAILED = 'Failed to delete the truck.',
   TRUCK_PERSISTENCE_ERROR = 'A database error occurred while persisting truck data.',
+  USER_NOT_FOUND = 'The user with the given ID was not found.',
+  USER_ALREADY_EXISTS = 'A user with the given email or phone already exists.',
+  INVALID_CREDENTIALS = 'Invalid email or password.',
+  USER_CREATION_FAILED = 'Failed to create the user.',
+  USER_AUTH_FAILED = 'Failed to authenticate the user.',
+  USER_PERSISTENCE_ERROR = 'A database error occurred while persisting user data.',
 }

@@ -25,6 +25,7 @@ never instantiated directly.
 
 ## Non-Negotiables
 
+- Use cases are flat files inside the `/use-cases` folder — never in subfolders
 - Always declare `Command` and `Result` types at the top of the file, before the class — use `type`, never `class` or `interface`
 - Always implement `UseCase<Command, Result>` — the `execute` method is the only public method
 - Always decorate with `@Injectable()`

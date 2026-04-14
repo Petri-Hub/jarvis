@@ -4,6 +4,7 @@ import { APP_FILTER } from '@nestjs/core';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { PrismaModule } from './modules/prisma/prisma.module';
 import { TrucksModule } from './modules/trucks/trucks.module';
+import { IdentityModule } from './modules/identity/identity.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { NotificationModule } from './modules/notification/notification.module';
 import { LoggingModule } from './modules/logging/logging.module';
@@ -21,6 +22,7 @@ import { DomainExceptionFilter } from './modules/shared/presentation/rest/filter
     EventEmitterModule.forRoot(),
     PrismaModule,
     TrucksModule,
+    IdentityModule,
     SharedModule,
     NotificationModule,
     LoggingModule,

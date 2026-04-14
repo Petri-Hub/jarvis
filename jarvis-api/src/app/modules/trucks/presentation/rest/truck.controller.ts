@@ -58,7 +58,8 @@ export class TruckController {
   })
   async create(@Body() dto: CreateTruckDTO): Promise<TruckResponseDTO> {
     const result = await this.createTruckUseCase.execute(dto);
-    return this.mapper.toResponseDTO(result.truck);
+    const response = this.mapper.toResponseDTO(result.truck);
+    return response;
   }
 
   @Get()
@@ -114,7 +115,8 @@ export class TruckController {
   ): Promise<TruckListResponseDTO> {
     const command = this.mapper.toSearchCommand(page, size, search, sortField, sortOrder);
     const result = await this.searchTrucksUseCase.execute(command);
-    return this.mapper.toListResponseDTO(result);
+    const response = this.mapper.toListResponseDTO(result);
+    return response;
   }
 
   @Get(':id')
@@ -134,7 +136,8 @@ export class TruckController {
   })
   async findOne(@Param('id', ParseIntPipe) id: number): Promise<TruckResponseDTO> {
     const result = await this.findTruckByIdUseCase.execute({ id });
-    return this.mapper.toResponseDTO(result.truck);
+    const response = this.mapper.toResponseDTO(result.truck);
+    return response;
   }
 
   @Put(':id')
@@ -162,7 +165,8 @@ export class TruckController {
     @Body() dto: UpdateTruckDTO,
   ): Promise<TruckResponseDTO> {
     const result = await this.updateTruckUseCase.execute({ id, ...dto });
-    return this.mapper.toResponseDTO(result.truck);
+    const response = this.mapper.toResponseDTO(result.truck);
+    return response;
   }
 
   @Delete(':id')

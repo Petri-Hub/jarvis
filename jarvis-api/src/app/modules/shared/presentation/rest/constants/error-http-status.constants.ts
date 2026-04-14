@@ -11,4 +11,10 @@ export const ERROR_CODE_TO_HTTP_STATUS: Record<ErrorCodes, number> = {
   [ErrorCodes.TRUCK_UPDATE_FAILED]: 500,
   [ErrorCodes.TRUCK_DELETION_FAILED]: 500,
   [ErrorCodes.TRUCK_PERSISTENCE_ERROR]: 500,
+  [ErrorCodes.USER_NOT_FOUND]: 404,
+  [ErrorCodes.USER_ALREADY_EXISTS]: 409,
+  [ErrorCodes.INVALID_CREDENTIALS]: 401,
+  [ErrorCodes.USER_CREATION_FAILED]: 500,
+  [ErrorCodes.USER_AUTH_FAILED]: 500,
+  [ErrorCodes.USER_PERSISTENCE_ERROR]: 500,
 };
