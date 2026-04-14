@@ -13,11 +13,11 @@ import {
   DefaultValuePipe,
 } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiQuery, ApiResponse, ApiParam } from '@nestjs/swagger';
-import { CreateTruckUseCase } from '../../application/use-cases/create-truck/create-truck.usecase';
-import { SearchTrucksUseCase } from '../../application/use-cases/search-trucks/search-trucks.usecase';
-import { FindTruckByIdUseCase } from '../../application/use-cases/find-truck-by-id/find-truck-by-id.usecase';
-import { UpdateTruckUseCase } from '../../application/use-cases/update-truck/update-truck.usecase';
-import { DeleteTruckUseCase } from '../../application/use-cases/delete-truck/delete-truck.usecase';
+import { CreateTruckUseCase } from '../../application/use-cases/create-truck.usecase';
+import { SearchTrucksUseCase } from '../../application/use-cases/search-trucks.usecase';
+import { FindTruckByIdUseCase } from '../../application/use-cases/find-truck-by-id.usecase';
+import { UpdateTruckUseCase } from '../../application/use-cases/update-truck.usecase';
+import { DeleteTruckUseCase } from '../../application/use-cases/delete-truck.usecase';
 import {
   CreateTruckDTO,
   UpdateTruckDTO,

@@ -3,7 +3,7 @@ import { HttpAdapterHost } from '@nestjs/core';
 import { BaseError } from '../../../domain/errors/base.error';
 import { ErrorCodes, ErrorTitles, ErrorMessages } from '../../../domain/constants/errors.constants';
 import { ErrorResponseDto } from '../dtos/error-response.dto';
-import { Logger } from '../../../../logging/logger.service';
+import { Logger } from '../../../../logging/infrastructure/logger.service';
 
 @Catch()
 export class GlobalExceptionFilter implements ExceptionFilter {
