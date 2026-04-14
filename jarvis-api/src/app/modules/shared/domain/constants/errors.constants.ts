@@ -15,6 +15,15 @@ export enum ErrorCodes {
   USER_CREATION_FAILED = 'U004',
   USER_AUTH_FAILED = 'U005',
   USER_PERSISTENCE_ERROR = 'U006',
+  WORKSPACE_NOT_FOUND = 'W001',
+  WORKSPACE_ALREADY_EXISTS = 'W002',
+  WORKSPACE_SLUG_ALREADY_EXISTS = 'W003',
+  WORKSPACE_CREATION_FAILED = 'W004',
+  WORKSPACE_UPDATE_FAILED = 'W005',
+  WORKSPACE_DELETION_FAILED = 'W006',
+  WORKSPACE_RETRIEVAL_FAILED = 'W007',
+  WORKSPACE_LISTING_FAILED = 'W008',
+  WORKSPACE_PERSISTENCE_ERROR = 'W009',
 }
 
 export enum ErrorTitles {
@@ -34,6 +43,15 @@ export enum ErrorTitles {
   USER_CREATION_FAILED = 'User creation failed',
   USER_AUTH_FAILED = 'User authentication failed',
   USER_PERSISTENCE_ERROR = 'User persistence error',
+  WORKSPACE_NOT_FOUND = 'Workspace not found',
+  WORKSPACE_ALREADY_EXISTS = 'Workspace already exists',
+  WORKSPACE_SLUG_ALREADY_EXISTS = 'Workspace slug already exists',
+  WORKSPACE_CREATION_FAILED = 'Workspace creation failed',
+  WORKSPACE_UPDATE_FAILED = 'Workspace update failed',
+  WORKSPACE_DELETION_FAILED = 'Workspace deletion failed',
+  WORKSPACE_RETRIEVAL_FAILED = 'Workspace retrieval failed',
+  WORKSPACE_LISTING_FAILED = 'Workspace listing failed',
+  WORKSPACE_PERSISTENCE_ERROR = 'Workspace persistence error',
 }
 
 export enum ErrorMessages {
@@ -53,4 +71,13 @@ export enum ErrorMessages {
   USER_CREATION_FAILED = 'Failed to create the user.',
   USER_AUTH_FAILED = 'Failed to authenticate the user.',
   USER_PERSISTENCE_ERROR = 'A database error occurred while persisting user data.',
+  WORKSPACE_NOT_FOUND = 'The workspace with the given ID was not found.',
+  WORKSPACE_ALREADY_EXISTS = 'A workspace with the given name already exists.',
+  WORKSPACE_SLUG_ALREADY_EXISTS = 'A workspace with the given slug already exists.',
+  WORKSPACE_CREATION_FAILED = 'Failed to create the workspace.',
+  WORKSPACE_UPDATE_FAILED = 'Failed to update the workspace.',
+  WORKSPACE_DELETION_FAILED = 'Failed to delete the workspace.',
+  WORKSPACE_RETRIEVAL_FAILED = 'Failed to retrieve the workspace.',
+  WORKSPACE_LISTING_FAILED = 'Failed to list workspaces.',
+  WORKSPACE_PERSISTENCE_ERROR = 'A database error occurred while persisting workspace data.',
 }
