@@ -1,6 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { createHash } from 'crypto';
-import * as bcrypt from 'bcrypt';
 import { UserRepository } from '../../domain/repositories/user.repository';
 import { UseCase } from '../../../shared/application/usecases/base.usecase';
 import { InvalidCredentialsError } from '../../domain/errors/invalid-credentials.error';
@@ -9,6 +7,7 @@ import { EventEmiiter } from '../../../shared/domain/services/event-emitter.serv
 import { UserSignedInEvent } from '../../domain/events/user-signed-in.event';
 import { User } from '../../domain/entities/user.entity';
 import { JwtService } from '@nestjs/jwt';
+import { PasswordService } from '../../domain/services/password.service';
 
 export type SignInCommand = {
   email: string;
@@ -26,6 +25,7 @@ export class SignInUseCase implements UseCase<SignInCommand, SignInResult> {
     private readonly userRepository: UserRepository,
     private readonly eventEmitter: EventEmiiter,
     private readonly jwtService: JwtService,
+    private readonly passwordService: PasswordService,
   ) {}
 
   async execute(command: SignInCommand): Promise<SignInResult> {
@@ -36,8 +36,11 @@ export class SignInUseCase implements UseCase<SignInCommand, SignInResult> {
         throw new InvalidCredentialsError({});
       }
 
-      const hash = createHash('sha256').update(command.password + user.passwordSalt).digest('hex');
-      const isPasswordValid = await bcrypt.compare(hash, user.password);
+      const isPasswordValid = await this.passwordService.verify(
+        command.password,
+        user.passwordSalt,
+        user.password,
+      );
 
       if (!isPasswordValid) {
         throw new InvalidCredentialsError({});

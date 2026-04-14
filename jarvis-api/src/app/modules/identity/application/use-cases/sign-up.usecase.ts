@@ -1,6 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { randomBytes, createHash } from 'crypto';
-import * as bcrypt from 'bcrypt';
 import { UserRepository } from '../../domain/repositories/user.repository';
 import { UseCase } from '../../../shared/application/usecases/base.usecase';
 import { UserCreationFailedError } from '../../domain/errors/user-creation-failed.error';
@@ -11,6 +9,7 @@ import { EventEmiiter } from '../../../shared/domain/services/event-emitter.serv
 import { UserCreatedEvent } from '../../domain/events/user-created.event';
 import { User } from '../../domain/entities/user.entity';
 import { JwtService } from '@nestjs/jwt';
+import { PasswordService } from '../../domain/services/password.service';
 
 export type SignUpCommand = {
   name: string;
@@ -32,6 +31,7 @@ export class SignUpUseCase implements UseCase<SignUpCommand, SignUpResult> {
     private readonly userRepository: UserRepository,
     private readonly eventEmitter: EventEmiiter,
     private readonly jwtService: JwtService,
+    private readonly passwordService: PasswordService,
   ) {}
 
   async execute(command: SignUpCommand): Promise<SignUpResult> {
@@ -44,15 +44,13 @@ export class SignUpUseCase implements UseCase<SignUpCommand, SignUpResult> {
         throw new UserWithPhoneAlreadyExistsError({});
       }
 
-      const salt = randomBytes(16).toString('hex');
-      const hash = createHash('sha256').update(command.password + salt).digest('hex');
-      const hashedPassword = await bcrypt.hash(hash, 10);
+      const { hash, salt } = await this.passwordService.hash(command.password);
 
       const user = await this.userRepository.create({
         name: command.name,
         email: command.email,
         phone: command.phone,
-        password: hashedPassword,
+        password: hash,
         passwordSalt: salt,
         firstName: command.firstName,
         lastName: command.lastName,

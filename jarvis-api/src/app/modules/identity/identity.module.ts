@@ -9,6 +9,8 @@ import { SignInUseCase } from './application/use-cases/sign-in.usecase';
 import { PrismaUserRepository } from './infrastructure/repositories/prisma-user.repository';
 import { UserRepository } from './domain/repositories/user.repository';
 import { IdentityControllerMapper } from './presentation/rest/identity.controller.mapper';
+import { PasswordService } from './domain/services/password.service';
+import { BcryptPasswordService } from './infrastructure/services/bcrypt-password.service';
 
 @Module({
   imports: [
@@ -32,6 +34,10 @@ import { IdentityControllerMapper } from './presentation/rest/identity.controlle
     {
       provide: UserRepository,
       useClass: PrismaUserRepository,
+    },
+    {
+      provide: PasswordService,
+      useClass: BcryptPasswordService,
     },
     SignUpUseCase,
     SignInUseCase,
