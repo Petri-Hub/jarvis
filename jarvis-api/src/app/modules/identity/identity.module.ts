@@ -3,6 +3,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { PrismaModule } from '../prisma/prisma.module';
+import { SharedModule } from '../shared/shared.module';
 import { IdentityController } from './presentation/rest/identity.controller';
 import { SignUpUseCase } from './application/use-cases/sign-up.usecase';
 import { SignInUseCase } from './application/use-cases/sign-in.usecase';
@@ -15,6 +16,7 @@ import { BcryptPasswordService } from './infrastructure/services/bcrypt-password
 @Module({
   imports: [
     PrismaModule,
+    SharedModule,
     PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.registerAsync({
       imports: [ConfigModule],

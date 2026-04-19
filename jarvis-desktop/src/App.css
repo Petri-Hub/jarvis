@@ -95,6 +95,205 @@ button {
   margin-right: 5px;
 }
 
+/* Login Page */
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.login-card {
+  background: #ffffff;
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-card h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #1a1a2e;
+}
+
+.login-card p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.login-card .form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.login-card label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.login-card input:focus {
+  border-color: #646cff;
+  outline: none;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 1rem;
+  background: #646cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.login-card button:hover {
+  background: #535bf2;
+}
+
+/* Home Page */
+.home-page {
+  min-height: 100vh;
+  background: #f6f6f6;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #1a1a2e;
+  color: white;
+}
+
+.home-header h1 {
+  margin: 0;
+  color: white;
+}
+
+.home-header button {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.home-header button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.home-content {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.status-card,
+.controls-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.status-card h2,
+.controls-card h2 {
+  margin-top: 0;
+  color: #1a1a2e;
+}
+
+.controls-card button {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.8rem;
+  background: #f6f6f6;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.controls-card button:hover {
+  background: #e8e8e8;
+}
+
+@media (prefers-color-scheme: dark) {
+  .login-card {
+    background: #2f2f2f;
+  }
+
+  .login-card h1 {
+    color: #f6f6f6;
+  }
+
+  .login-card p {
+    color: #aaa;
+  }
+
+  .login-card label {
+    color: #ccc;
+  }
+
+  .login-card input {
+    background: #1a1a1a;
+    border-color: #444;
+    color: #f6f6f6;
+  }
+
+  .home-page {
+    background: #1a1a1a;
+  }
+
+  .home-content {
+    background: #1a1a1a;
+  }
+
+  .status-card,
+  .controls-card {
+    background: #2f2f2f;
+  }
+
+  .status-card h2,
+  .controls-card h2 {
+    color: #f6f6f6;
+  }
+
+  .status-card p {
+    color: #aaa;
+  }
+
+  .controls-card button {
+    background: #3f3f3f;
+    border-color: #555;
+    color: #f6f6f6;
+  }
+
+  .controls-card button:hover {
+    background: #4f4f4f;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     color: #f6f6f6;

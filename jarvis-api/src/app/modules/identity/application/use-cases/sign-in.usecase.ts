@@ -46,8 +46,12 @@ export class SignInUseCase implements UseCase<SignInCommand, SignInResult> {
         throw new InvalidCredentialsError({});
       }
 
-      const payload = { sub: user.id, email: user.email };
-      const accessToken = await this.jwtService.signAsync(payload);
+      const accessToken = await this.jwtService.signAsync({ 
+        sub: user.id,
+        name: user.name,
+        email: user.email,
+        phone: user.phone
+      });
 
       await this.eventEmitter.emit(
         new UserSignedInEvent({
